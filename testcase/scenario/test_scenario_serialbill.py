@@ -27,11 +27,11 @@ class FeeScenario(unittest.TestCase):
 
     jsondata = read_json("testdata/scenario/serialbill.json")
     # 运行全部json用例=================================
-    # testdata_tuple = jsondata.items()
+    testdata_tuple = jsondata.items()
 
     # 运行指定case--主要用于调试和查看单个或某几个case===================
-    casename = 'case01-签署SIGNATURE-无账单生成'
-    testdata_tuple = [(casename,jsondata[casename])]
+    # casename = 'case03-1份合同，2个不同计费项(短信/次和事件型证书/次)-新旧数据'
+    # testdata_tuple = [(casename,jsondata[casename])]
 
 
     def setUp(self) -> None:
@@ -81,7 +81,7 @@ class FeeScenario(unittest.TestCase):
                     FeeApi().updatestatus(data, agreementid=agreementId)
 
                 elif case_url == APIS['bill_query']:  # 判断生成的账单：多个或零个
-                    time.sleep(1)
+                    time.sleep(2)
                     resBill = FeeApi().getbill(data)
                     actual_result={}
                     if len(resBill.json()['result']['result']) == 0:

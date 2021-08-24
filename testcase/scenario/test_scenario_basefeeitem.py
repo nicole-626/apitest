@@ -27,11 +27,11 @@ class FeeScenario(unittest.TestCase):
 
     jsondata = read_json("testdata/scenario/basefeeitem.json")
     # 运行全部json用例=================================
-    testdata_tuple = jsondata.items()
+    # testdata_tuple = jsondata.items()
 
     # 运行指定case--主要用于调试和查看单个或某几个case===================
-    # casename = 'case01-签署SIGNATURE-按次-新数据'
-    # testdata_tuple = [(casename,jsondata[casename])]
+    casename = 'case01-签署SIGNATURE-按次-新数据'
+    testdata_tuple = [(casename,jsondata[casename])]
 
 
     def setUp(self) -> None:
