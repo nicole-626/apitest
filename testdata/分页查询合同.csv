@@ -1,0 +1,8 @@
+url,method,headers,data_type,params
+api/crm/oss/agreement/query/page,POST,{"Content-Type":"application/json"},json,"
+       {
+  ""appId"":111,
+  ""customerId"": 2222,
+  ""pageNo"":1,
+  ""pageSize"":10
+}"

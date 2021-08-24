@@ -1,0 +1,3704 @@
+{
+  "case01-签署SIGNATURE-按次-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "SIGNATURE",
+        "createTime": "2021-06-29 00:00:00",
+        "number": 4,
+        "bizId": 21122
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case01-签署SIGNATURE-按次-新数据",
+        "priceList": [
+          {
+            "productType": "SIGNATURE",
+            "unit": "count"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "签署",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-06-01 00:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-06-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":1},{\"money\":1000,\"number\":3}]"
+    }
+  ],
+  "case02-签署SIGNATURE-按份-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "SIGNATURE",
+        "createTime": "2021-06-29 00:00:00",
+        "number": 4,
+        "bizId": 21122
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case02-签署SIGNATURE-按份-新数据",
+        "priceList": [
+          {
+            "productType": "SIGNATURE",
+            "unit": "business"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "签署",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-07-01 00:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-06-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":1000,\"number\":1}]"
+    }
+  ],
+  "case03-短信MESSAGE-按次-套餐包不在时间范围内-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "MESSAGE",
+        "createTime": "2021-05-29 00:00:00",
+        "number": 4,
+        "bizId": 33333
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case03-短信MESSAGE-按次-套餐包不在时间范围内-新数据",
+        "priceList": [
+          {
+            "productType": "MESSAGE",
+            "unit": "count"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "短信",
+            "packPrice": {
+              "quota": 2,
+              "startTime": "2021-06-01 00:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-05-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":1000,\"number\":4}]"
+    }
+  ],
+  "case04-存证NOTARY-按次-新数据-有价格阶梯": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "NOTARY",
+        "createTime": "2020-11-18 12:00:00",
+        "number": 15,
+        "bizId": 121212
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case04-存证NOTARY-按次-新数据-有价格阶梯",
+        "priceList": [
+          {
+            "productType": "NOTARY",
+            "unit": "count"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2020-11-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "存证",
+            "packPrice": {
+              "quota": 2,
+              "startTime": "2020-11-01 00:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2020-11-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":2},{\"money\":1000,\"number\":10},{\"money\":2000,\"number\":3}]"
+    }
+  ],
+  "case05-存证NOTARY-按份-新数据-无套餐包": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "NOTARY",
+        "createTime": "2021-01-18 12:00:00",
+        "number": 2,
+        "bizId": 121212
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case05-存证NOTARY-按份-新数据-无套餐包",
+        "priceList": [
+          {
+            "productType": "NOTARY",
+            "unit": "business"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2020-11-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "存证",
+            "countPrice": {
+              "startTime": "2021-01-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "3000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":3000,\"number\":1}]"
+    }
+  ],
+  "case06-出证NOTARY_PROVE-按份-新数据-无套餐包": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "NOTARY_PROVE",
+        "createTime": "2021-01-18 12:00:00",
+        "number": 2,
+        "bizId": 121212
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case06-出证NOTARY_PROVE-按份-新数据-无套餐包",
+        "priceList": [
+          {
+            "productType": "NOTARY_PROVE",
+            "unit": "business"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2020-11-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "出证",
+            "countPrice": {
+              "startTime": "2021-01-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":1000,\"number\":1}]"
+    }
+  ],
+  "case07-扫脸签署FACE_SIGN-按次-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "FACE_SIGN",
+        "createTime": "2021-05-18 12:00:00",
+        "number": 5,
+        "bizId": 7777
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case07-扫脸签署FACE_SIGN-按次-新数据",
+        "priceList": [
+          {
+            "productType": "FACE_SIGN",
+            "unit": "count"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2020-11-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "扫脸签署",
+            "packPrice": {
+              "quota": 2,
+              "startTime": "2021-05-01 00:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-05-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "15000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":2},{\"money\":15000,\"number\":3}]"
+    }
+  ],
+  "case08-查询企业工商信息QUERY_CORP_INFO-按次-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "QUERY_CORP_INFO",
+        "createTime": "2021-05-29 00:00:00",
+        "number": 3,
+        "bizId": 33333
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case08-查询企业工商信息QUERY_CORP_INFO-按次-新数据",
+        "priceList": [
+          {
+            "productType": "QUERY_CORP_INFO",
+            "unit": "count"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "查询企业工商信息",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-05-01 00:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-05-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":1},{\"money\":1000,\"number\":2}]"
+    }
+  ],
+  "case09-查询企业工商信息QUERY_CORP_INFO-按份-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "QUERY_CORP_INFO",
+        "createTime": "2021-05-29 00:00:00",
+        "number": 3,
+        "bizId": 33333
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case09-查询企业工商信息QUERY_CORP_INFO-按份-新数据",
+        "priceList": [
+          {
+            "productType": "QUERY_CORP_INFO",
+            "unit": "business"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "查询企业工商信息",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-05-01 00:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-05-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":1}]"
+    }
+  ],
+  "case10-二要素身份认证TWO_ELEMENT_AUTH-按次-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "TWO_ELEMENT_AUTH",
+        "createTime": "2021-05-29 00:00:00",
+        "number": 2,
+        "bizId": 33333
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case10-二要素身份认证TWO_ELEMENT_AUTH-按次-新数据",
+        "priceList": [
+          {
+            "productType": "TWO_ELEMENT_AUTH",
+            "unit": "count"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "二要素身份认证",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-05-01 00:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-05-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":1},{\"money\":1000,\"number\":1}]"
+    }
+  ],
+  "case11-个人认证PERSON_AUTH-按次-3月最后1秒数据-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "PERSON_AUTH",
+        "createTime": "2021-03-31 23:59:59",
+        "number": 2,
+        "bizId": 33333
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case11-个人认证PERSON_AUTH-按次-3月最后一秒-新数据",
+        "priceList": [
+          {
+            "productType": "PERSON_AUTH",
+            "unit": "count"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "个人认证",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-03-01 00:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-03-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":1},{\"money\":1000,\"number\":1}]"
+    }
+  ],
+  "case12-个人认证PERSON_AUTH-按份-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "PERSON_AUTH",
+        "createTime": "2021-03-31 23:59:59",
+        "number": 2,
+        "bizId": 33333
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case12-个人认证PERSON_AUTH-按份-新数据",
+        "priceList": [
+          {
+            "productType": "PERSON_AUTH",
+            "unit": "business"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "个人认证",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-09-01 00:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-03-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":1000,\"number\":1}]"
+    }
+  ],
+  "case13-事件型证书EVENT_CERT-按个-上海ca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "EVENT_CERT",
+        "createTime": "2021-02-22 12:22:00",
+        "number": 2,
+        "bizId": 33333,
+        "caType":"sheca"
+
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case13-事件型证书EVENT_CERT-按个-上海ca-新数据",
+        "priceList": [
+          {
+            "productType": "EVENT_CERT",
+            "unit": "count",
+            "config":{
+  		        "caType":"sheca"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "事件型证书-上海CA",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-02-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-02-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":1},{\"money\":1000,\"number\":1}]"
+    }
+  ],
+  "case14-事件型证书EVENT_CERT-按个-myca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "EVENT_CERT",
+        "createTime": "2021-02-22 12:22:00",
+        "number": 2,
+        "bizId": 33333,
+        "caType":"myca"
+
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case14-事件型证书EVENT_CERT-按个-myca-新数据",
+        "priceList": [
+          {
+            "productType": "EVENT_CERT",
+            "unit": "count",
+            "config":{
+  		        "caType":"myca"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "事件型证书-MYCA",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-02-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-02-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":1},{\"money\":1000,\"number\":1}]"
+    }
+  ],
+  "case15-事件型证书EVENT_CERT-按个-gdca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "EVENT_CERT",
+        "createTime": "2021-02-22 12:22:00",
+        "number": 3,
+        "bizId": 33333,
+        "caType":"gdca"
+
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case15-事件型证书EVENT_CERT-按个-gdca-新数据",
+        "priceList": [
+          {
+            "productType": "EVENT_CERT",
+            "unit": "count",
+            "config":{
+  		        "caType":"gdca"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "事件型证书-广东CA",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-02-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-02-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":1},{\"money\":1000,\"number\":2}]"
+    }
+  ],
+  "case16-事件型证书EVENT_CERT-按个-合同为默认ca,数据为广东ca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "EVENT_CERT",
+        "createTime": "2021-02-22 12:22:00",
+        "number": 4,
+        "bizId": 33333,
+        "caType":"gdca"
+
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case16-事件型证书EVENT_CERT-按个-默认ca,数据为广东ca-新数据",
+        "priceList": [
+          {
+            "productType": "EVENT_CERT",
+            "unit": "count"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "事件型证书",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-02-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-02-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":1},{\"money\":1000,\"number\":3}]"
+    }
+  ],
+  "case17-个人长期证书PERSON_LONG_CERT-按个-默认ca，1年期，数据为上海ca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "PERSON_LONG_CERT",
+        "createTime": "2021-03-22 12:22:00",
+        "number": 2,
+        "bizId": 33333,
+        "caType":"sheca",
+        "validity": 12
+
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case17-个人长期证书PERSON_LONG_CERT-按个-默认ca，1年期，数据为上海ca-新数据",
+        "priceList": [
+          {
+            "productType": "PERSON_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "validity": 12
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "个人长期证书-一年期",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-04-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-03-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":1000,\"number\":2}]"
+    }
+  ],
+  "case18-个人长期证书PERSON_LONG_CERT-按个-默认ca，2年期，数据为上海ca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "PERSON_LONG_CERT",
+        "createTime": "2021-03-22 12:22:00",
+        "number": 3,
+        "bizId": 33333,
+        "caType":"sheca",
+        "validity": 24
+
+
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case18-个人长期证书PERSON_LONG_CERT-按个-默认ca，2年期，数据为上海ca-新数据",
+        "priceList": [
+          {
+            "productType": "PERSON_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "validity": 24
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "个人长期证书-两年期",
+            "packPrice": {
+              "quota": 2,
+              "startTime": "2021-03-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-03-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":2},{\"money\":1000,\"number\":1}]"
+    }
+  ],
+  "case19-个人长期证书PERSON_LONG_CERT-按个-上海ca，1年期，数据为上海ca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "PERSON_LONG_CERT",
+        "createTime": "2021-03-22 12:22:00",
+        "number": 3,
+        "bizId": 33333,
+        "caType":"sheca",
+        "validity": 12
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case19-个人长期证书PERSON_LONG_CERT-按个-上海ca，1年期，数据为上海ca-新数据",
+        "priceList": [
+          {
+            "productType": "PERSON_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "caType": "sheca",
+                "validity": 12
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "个人长期证书-上海CA-一年期",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-03-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-03-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":1},{\"money\":1000,\"number\":2}]"
+    }
+  ],
+  "case20-个人长期证书PERSON_LONG_CERT-按个-上海ca，2年期，数据为上海ca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "PERSON_LONG_CERT",
+        "createTime": "2021-03-22 12:22:00",
+        "number": 3,
+        "bizId": 33333,
+        "caType":"sheca",
+        "validity":24
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case20-个人长期证书PERSON_LONG_CERT-按个-上海ca，2年期，数据为上海ca-新数据",
+        "priceList": [
+          {
+            "productType": "PERSON_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "caType": "sheca",
+                "validity": 24
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "个人长期证书-上海CA-两年期",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-03-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-03-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":1},{\"money\":1000,\"number\":2}]"
+    }
+  ],
+  "case21-个人长期证书PERSON_LONG_CERT-按个-myca，1年期，数据为myca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "PERSON_LONG_CERT",
+        "createTime": "2021-01-22 12:22:00",
+        "number": 3,
+        "bizId": 33333,
+        "caType":"myca",
+        "validity": 12
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case21-个人长期证书PERSON_LONG_CERT-按个-myca，1年期，数据为myca-新数据",
+        "priceList": [
+          {
+            "productType": "PERSON_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "caType": "myca",
+                "validity": 12
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "个人长期证书-MYCA-一年期",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-02-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-01-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "12000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":12000,\"number\":3}]"
+    }
+  ],
+  "case22-个人长期证书PERSON_LONG_CERT-按个-myca，2年期，数据为myca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "PERSON_LONG_CERT",
+        "createTime": "2021-01-22 12:22:00",
+        "number": 2,
+        "bizId": 33333,
+        "caType":"myca",
+        "validity": 24
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case22-个人长期证书PERSON_LONG_CERT-按个-myca，2年期，数据为myca-新数据",
+        "priceList": [
+          {
+            "productType": "PERSON_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "caType": "myca",
+                "validity": 24
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "个人长期证书-MYCA-两年期",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-02-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-01-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "11000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":11000,\"number\":2}]"
+    }
+  ],
+  "case23-个人长期证书PERSON_LONG_CERT-按个-cfca，1年期，数据为cfca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "PERSON_LONG_CERT",
+        "createTime": "2021-01-22 12:22:00",
+        "number": 2,
+        "bizId": 33333,
+        "caType":"cfca",
+        "validity": 12
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case23-个人长期证书PERSON_LONG_CERT-按个-cfca，1年期，数据为cfca-新数据",
+        "priceList": [
+          {
+            "productType": "PERSON_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "caType": "cfca",
+                "validity": 12
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "个人长期证书-CFCA-一年期",
+            "packPrice": {
+              "quota": 2,
+              "startTime": "2021-01-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-01-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "11000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":2}]"
+    }
+  ],
+  "case24-个人长期证书PERSON_LONG_CERT-按个-cfca，2年期，数据为cfca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "PERSON_LONG_CERT",
+        "createTime": "2021-01-22 12:22:00",
+        "number": 2,
+        "bizId": 33333,
+        "caType":"cfca",
+        "validity": 24
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case24-个人长期证书PERSON_LONG_CERT-按个-cfca，2年期，数据为cfca-新数据",
+        "priceList": [
+          {
+            "productType": "PERSON_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "caType": "cfca",
+                "validity": 24
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "个人长期证书-CFCA-两年期",
+            "packPrice": {
+              "quota": 2,
+              "startTime": "2021-01-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-01-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "11000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":2}]"
+    }
+  ],
+  "case25-企业长期证书CORP_LONG_CERT-按个-默认ca，1年期，数据为上海ca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "CORP_LONG_CERT",
+        "createTime": "2021-04-11 10:22:00",
+        "number": 2,
+        "bizId": 33333,
+        "caType":"sheca",
+        "validity": 12
+
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case25-企业长期证书CORP_LONG_CERT-按个-默认ca，1年期，数据为上海ca-新数据",
+        "priceList": [
+          {
+            "productType": "CORP_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "validity": 12
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "企业长期证书-一年期",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-04-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-04-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":1},{\"money\":1000,\"number\":1}]"
+    }
+  ],
+  "case26-企业长期证书CORP_LONG_CERT-按个-默认ca，2年期，数据为上海ca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "CORP_LONG_CERT",
+        "createTime": "2021-03-22 12:22:00",
+        "number": 3,
+        "bizId": 33333,
+        "caType":"sheca",
+        "validity": 24
+
+
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case26-企业长期证书CORP_LONG_CERT-按个-默认ca，2年期，数据为上海ca-新数据",
+        "priceList": [
+          {
+            "productType": "CORP_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "validity": 24
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "企业长期证书-两年期",
+            "packPrice": {
+              "quota": 2,
+              "startTime": "2021-03-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-03-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":2},{\"money\":1000,\"number\":1}]"
+    }
+  ],
+  "case27-企业长期证书CORP_LONG_CERT-按个-上海ca，1年期，数据为上海ca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "CORP_LONG_CERT",
+        "createTime": "2021-03-22 12:22:00",
+        "number": 3,
+        "bizId": 33333,
+        "caType":"sheca",
+        "validity": 12
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case27-企业长期证书CORP_LONG_CERT-按个-上海ca，1年期，数据为上海ca-新数据",
+        "priceList": [
+          {
+            "productType": "CORP_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "caType": "sheca",
+                "validity": 12
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "企业长期证书-上海CA-一年期",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-03-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-03-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "100",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":1},{\"money\":100,\"number\":2}]"
+    }
+  ],
+  "case28-企业长期证书CORP_LONG_CERT-按个-上海ca，2年期，数据为上海ca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "CORP_LONG_CERT",
+        "createTime": "2021-03-22 12:22:00",
+        "number": 3,
+        "bizId": 33333,
+        "caType":"sheca",
+        "validity":24
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case28-企业长期证书CORP_LONG_CERT-按个-上海ca，2年期，数据为上海ca-新数据",
+        "priceList": [
+          {
+            "productType": "CORP_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "caType": "sheca",
+                "validity": 24
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "个人长期证书-上海CA-两年期",
+            "packPrice": {
+              "quota": 2,
+              "startTime": "2021-03-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-03-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "2000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "3000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":2},{\"money\":2000,\"number\":1}]"
+    }
+  ],
+  "case29-企业长期证书CORP_LONG_CERT-按个-myca，1年期，数据为myca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "CORP_LONG_CERT",
+        "createTime": "2021-01-22 12:22:00",
+        "number": 3,
+        "bizId": 33333,
+        "caType":"myca",
+        "validity": 12
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case29-企业长期证书CORP_LONG_CERT-按个-myca，1年期，数据为myca-新数据",
+        "priceList": [
+          {
+            "productType": "CORP_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "caType": "myca",
+                "validity": 12
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "企业长期证书-MYCA-一年期",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-02-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-01-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "5000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":5000,\"number\":3}]"
+    }
+  ],
+  "case30-企业长期证书CORP_LONG_CERT-按个-myca，2年期，数据为myca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "CORP_LONG_CERT",
+        "createTime": "2021-01-22 12:22:00",
+        "number": 2,
+        "bizId": 33333,
+        "caType":"myca",
+        "validity": 24
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case30-企业长期证书CORP_LONG_CERT-按个-myca，2年期，数据为myca-新数据",
+        "priceList": [
+          {
+            "productType": "CORP_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "caType": "myca",
+                "validity": 24
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "企业长期证书-MYCA-两年期",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-02-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-01-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "11000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":11000,\"number\":2}]"
+    }
+  ],
+  "case31-企业长期证书CORP_LONG_CERT-按个-cfca，1年期，数据为cfca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "CORP_LONG_CERT",
+        "createTime": "2021-01-22 12:22:00",
+        "number": 2,
+        "bizId": 33333,
+        "caType":"cfca",
+        "validity": 12
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case31-企业长期证书CORP_LONG_CERT-按个-cfca，1年期，数据为cfca-新数据",
+        "priceList": [
+          {
+            "productType": "CORP_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "caType": "cfca",
+                "validity": 12
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "企业长期证书-CFCA-一年期",
+            "packPrice": {
+              "quota": 2,
+              "startTime": "2021-01-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-01-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "11000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":2}]"
+    }
+  ],
+  "case32-企业长期证书CORP_LONG_CERT-按个-cfca，2年期，数据为cfca-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "CORP_LONG_CERT",
+        "createTime": "2021-01-22 12:22:00",
+        "number": 3,
+        "bizId": 33333,
+        "caType":"cfca",
+        "validity": 24
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case32-企业长期证书CORP_LONG_CERT-按个-cfca，2年期，数据为cfca-新数据",
+        "priceList": [
+          {
+            "productType": "CORP_LONG_CERT",
+            "unit": "count",
+            "config":{
+                "caType": "cfca",
+                "validity": 24
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "个人长期证书-CFCA-两年期",
+            "packPrice": {
+              "quota": 2,
+              "startTime": "2021-01-01 12:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-01-01 12:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "200",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":0,\"number\":2},{\"money\":200,\"number\":1}]"
+    }
+  ],
+  "case33-企业认证CORP_AUTH-按份-新数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "dataType": "new",
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "CORP_AUTH",
+        "createTime": "2021-03-31 23:59:59",
+        "number": 2,
+        "bizId": 33333
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case33-企业认证CORP_AUTH-按份-新数据",
+        "priceList": [
+          {
+            "productType": "CORP_AUTH",
+            "unit": "business"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "企业认证",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-09-01 00:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-03-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/detail",
+      "data": {
+        "billId": "billId"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    },
+    {
+      "exp_result": "[{\"money\":1000,\"number\":1}]"
+    }
+  ]
+}

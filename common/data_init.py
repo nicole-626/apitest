@@ -1,0 +1,57 @@
+# coding="utf-8"
+
+
+from common.read_config import readconfig
+import requests
+
+
+class DataInit:
+    '''数据初始化：删除所有旧数据插入新数据'''
+    def __init__(self):
+        self.host=readconfig('HTTP', 'datainit_host')
+        self.headers={
+                    "Content-Type":"application/json",
+                    "x-qys-oss-token":readconfig("AUTH","token")}
+        self.default_body = {
+            "appId": readconfig("CUSTOMER","appId"),
+            "customerId": readconfig("CUSTOMER","customerId")}
+
+    def del_newdata(self,data=None):
+        if data is None:
+            body = self.default_body
+        else:
+            body = data
+        url=self.host+"/oss/crm/oss/resource/test/delete"
+        responce = requests.post(url,headers=self.headers, json=body)
+        return responce
+
+    def del_olddata(self,data=None):
+        if data is None:
+            body = self.default_body
+        else:
+            body = data
+        url = self.host + "/oss/crm/oss/resource/test/delete/migrate"
+        responce = requests.post(url, headers=self.headers, json=body)
+        return responce
+
+    def add_data(self, testdata):
+        url = self.host + "/"+testdata["url"]
+        body = testdata["data"]
+        if "appId" in body and body["appId"] == "appId":
+            body['appId'] = readconfig("CUSTOMER", "appId")
+            if "customerId" in body and body["customerId"] == "customerId":
+                body['customerId'] = readconfig("CUSTOMER", "customerId")
+
+        responce = requests.post(url, headers=self.headers, json=body)
+        return responce
+
+
+if __name__ == '__main__':
+    a=DataInit().del_newdata()
+    print(a.json())
+
+
+
+
+
+

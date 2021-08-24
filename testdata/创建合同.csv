@@ -1,0 +1,13 @@
+url,method,headers,data_type,params
+api/crm/oss/agreement/create,POST,{"Content-Type":"application/json"},json,"
+       {
+  ""appId"":1111,
+  ""customerId"": 111,
+  ""contractNo"": ""111"",
+  ""signTime"": ""2020-06-29 12:00:00"",
+  ""desc"": ""????1"",
+  ""priceList"": [{
+   ""productType"": ""SIGNATURE"",
+   ""unit"": ""count""
+ }]
+}"

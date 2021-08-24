@@ -1,0 +1,385 @@
+{
+  "case01-签署SIGNATURE-无账单生成": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "SIGNATURE",
+        "createTime": "2021-06-29 00:00:00",
+        "number": 1,
+        "bizId": 21122
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case01-签署SIGNATURE-无账单生成",
+        "priceList": [
+          {
+            "productType": "SIGNATURE",
+            "unit": "count"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "签署",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-07-01 00:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-07-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      },
+      "exp_result": []
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    }
+  ],
+  "case02-签署SIGNATURE-按次-生成2个月的账单": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "SIGNATURE",
+        "createTime": "2021-06-29 00:00:00",
+        "number": 1,
+        "bizId": 21122
+      }
+    },
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "SIGNATURE",
+        "createTime": "2021-05-29 00:00:00",
+        "number": 2,
+        "bizId": 1222
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case01-签署SIGNATURE-无账单生成",
+        "priceList": [
+          {
+            "productType": "SIGNATURE",
+            "unit": "count"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "签署",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-07-01 00:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-05-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      },
+      "exp_result": {"2021-06": 1000, "2021-05": 2000}
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    }
+  ],
+  "case03-1份合同，2个不同计费项(短信/次和事件型证书/次)-新旧数据": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "MESSAGE",
+        "createTime": "2021-06-29 00:00:00",
+        "number": 3,
+        "bizId": 122121
+      }
+    },
+    {
+      "url": "oss/crm/oss/resource/test/insert/migrate",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "MESSAGE",
+        "createTime": "2020-09-21 00:00:00",
+        "number": 1,
+        "bizId": 21122
+      }
+    },
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "EVENT_CERT",
+        "createTime": "2021-06-11 00:00:00",
+        "number": 2,
+        "bizId": 21122
+      }
+    },
+    {
+      "url": "oss/crm/oss/resource/test/insert/migrate",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "EVENT_CERT",
+        "createTime": "2020-09-21 00:00:00",
+        "number": 1,
+        "bizId": 232113
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": "case03-1份合同，2个不同计费项(短信/次和事件型证书/次)-新旧数据",
+        "priceList": [
+          {
+            "productType": "MESSAGE",
+            "unit": "count"
+          },
+           {
+            "productType": "EVENT_CERT",
+            "unit": "count"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "signTime",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "短信",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-06-01 00:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-06-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          },
+          {
+            "id": "id",
+            "name": "事件型证书",
+            "countPrice": {
+              "startTime": "2020-09-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "to": 10,
+                  "noLimit": false
+                },
+                {
+                  "level": 2,
+                  "price": "2000",
+                  "from": 11,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      },
+      "exp_result": []
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "disable"
+      }
+    }
+  ],
+  "case04-test": [
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    }
+  ]
+
+}
