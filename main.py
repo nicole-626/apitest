@@ -8,6 +8,8 @@ class RunCase:
     def __init__(self):
         self.testcase_path = "./testcase"
         self.report_path = "./report"
+        if not os.path.exists(self.report_path):
+            os.mkdir(self.report_path)
 
     def set_casesuite(self):
         sub_path=os.listdir(self.testcase_path)
@@ -18,7 +20,8 @@ class RunCase:
         # 循环获取每个case文件夹下的单独case加入suite中
         suite = unittest.TestSuite()
         for path in subcase_path:
-            discover = unittest.defaultTestLoader.discover(path,pattern="test*.py")
+            # discover = unittest.defaultTestLoader.discover(path,pattern="test*.py")
+            discover = unittest.defaultTestLoader.discover(path, pattern="test_scenario_serialbill.py")
             suite.addTest(discover)
         return suite
 

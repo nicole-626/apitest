@@ -6,3 +6,4 @@ info.txt
 test.py
 /__pycache__/
 *.pyc
+report/
