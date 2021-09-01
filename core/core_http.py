@@ -16,6 +16,7 @@ class CoreHttp:
         self.data_type=data_type
         self.get_params=get_params
         self.post_params=post_params
+        self.timeout = 10  # 接口默认超时时间为10s
         # 传入的appid或customerid不为具体的值，转化为默认值
         if "appId" in self.post_params and self.post_params["appId"] == "appId":
             self.post_params['appId'] = readconfig("CUSTOMER", "appId")
@@ -32,15 +33,23 @@ class CoreHttp:
             return __default_headers
 
     def send_request(self):
-        if self.method == "POST":
-            if self.data_type == "json":
-                return requests.post(url=self.url, headers=self.__set_headers(), json=self.post_params)
+        try:
+            if self.method == "POST":
+                if self.data_type == "json":
+                    return requests.post(url=self.url, headers=self.__set_headers(), json=self.post_params,
+                                         timeout=self.timeout)
+                else:
+                    return requests.post(url=self.url, headers=self.__set_headers(), data=self.post_params,
+                                         timeout=self.timeout)
+            elif self.method == "GET":
+                return requests.get(url=self.url, headers=self.__set_headers(), params=self.get_params,
+                                    timeout=self.timeout)
             else:
-                return requests.post(url=self.url, headers=self.__set_headers(), data=self.post_params)
-        elif self.method == "GET":
-            return requests.get(url=self.url,headers=self.__set_headers(), params=self.get_params)
-        else:
-            print("invalid method")
+                print("invalid method")
+        except Exception as e:
+            print(e)
+
+
 
 
 
