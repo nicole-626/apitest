@@ -5155,7 +5155,7 @@
             "name": "企业长期证书-MYCA-两年期",
             "packPrice": {
               "quota": 1,
-              "startTime": "2020-02-01 12:00:00",
+              "startTime": "2021-02-01 12:00:00",
               "forever": true
             },
             "countPrice": {
