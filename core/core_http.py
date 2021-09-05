@@ -36,14 +36,23 @@ class CoreHttp:
         try:
             if self.method == "POST":
                 if self.data_type == "json":
-                    return requests.post(url=self.url, headers=self.__set_headers(), json=self.post_params,
+                    ret= requests.post(url=self.url, headers=self.__set_headers(), json=self.post_params,
                                          timeout=self.timeout)
+                    if ret.json()["code"] != 0:
+                        raise Exception(ret.json()["message"])
+                    return ret
                 else:
-                    return requests.post(url=self.url, headers=self.__set_headers(), data=self.post_params,
+                    ret = requests.post(url=self.url, headers=self.__set_headers(), data=self.post_params,
                                          timeout=self.timeout)
+                    if ret.json()["code"] != 0:
+                        raise Exception(ret.json()["message"])
+                    return ret
             elif self.method == "GET":
-                return requests.get(url=self.url, headers=self.__set_headers(), params=self.get_params,
+                ret = requests.get(url=self.url, headers=self.__set_headers(), params=self.get_params,
                                     timeout=self.timeout)
+                if ret.json()["code"] != 0:
+                    raise Exception(ret.json()["message"])
+                return ret
             else:
                 print("invalid method")
         except Exception as e:
