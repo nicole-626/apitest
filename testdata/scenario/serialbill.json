@@ -535,7 +535,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -603,7 +604,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -1250,7 +1252,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -1313,7 +1316,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -1405,7 +1409,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -1464,7 +1469,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -1513,7 +1519,7 @@
       "exp_result": {"2021-06": 2000}
     }
   ],
-  "[***]case13-存在多个资源包，优先使用开始早的，其次结束早的，上海ca事件型证书": [
+  "case13-存在多个资源包，优先使用开始早的，其次结束早的，上海ca事件型证书": [
     {
       "url": "oss/crm/oss/resource/test/insert",
       "data": {
@@ -1549,7 +1555,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -1558,16 +1565,15 @@
         "agreementId": "agreementId",
         "signTime": "2021-07-03 12:00:00",
         "feeStartTime": "2021-01-01 12:00:00",
-        "packPrice": {
-              "quota": 3,
-              "startTime": "2021-05-01 00:00:00",
-              "endTime":"2021-06-01 00:00:00",
-              "forever": false
-            },
         "priceList": [
           {
             "id": "id",
             "name": "事件型证书-上海ca",
+            "packPrice": {
+              "quota": 3,
+              "startTime": "2021-05-01 00:00:00",
+              "forever": true
+            },
             "countPrice": {
               "startTime": "2021-05-01 00:00:00",
               "forever": true,
@@ -1614,7 +1620,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -1705,7 +1712,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -1770,7 +1778,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -1852,7 +1861,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -1917,7 +1927,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -1966,7 +1977,7 @@
       "exp_result": {"2021-06": 6000}
     }
   ],
-  "case15-【1个合同2个计费项】上海ca事件型证书，存在具体配置+单价>不存在具体配置+资源包": [
+  "case16-【1个合同2个计费项】上海ca事件型证书，存在具体配置+单价>不存在具体配置+资源包": [
     {
       "url": "oss/crm/oss/resource/test/insert",
       "data": {
@@ -2079,7 +2090,7 @@
       "exp_result": {"2021-06": 6000}
     }
   ],
-  "case16-【2个合同】上海ca事件型证书，不存在具体配置+资源包>不存在具体配置+单价": [
+  "case17-【2个合同】上海ca事件型证书，不存在具体配置+资源包>不存在具体配置+单价": [
     {
       "url": "oss/crm/oss/resource/test/insert",
       "data": {
@@ -2112,7 +2123,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -2168,7 +2180,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
