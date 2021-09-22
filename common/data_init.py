@@ -23,7 +23,8 @@ class DataInit:
             body = data
         url=self.host+"/oss/crm/oss/resource/test/delete"
         responce = requests.post(url,headers=self.headers, json=body)
-        return responce
+        if responce.json()["message"] != 'SUCCESS':
+            raise Exception("插入数据失败",responce.json())
 
     def del_olddata(self,data=None):
         if data is None:
@@ -32,7 +33,8 @@ class DataInit:
             body = data
         url = self.host + "/oss/crm/oss/resource/test/delete/migrate"
         responce = requests.post(url, headers=self.headers, json=body)
-        return responce
+        if responce.json()["message"] != 'SUCCESS':
+            raise Exception("插入数据失败",responce.json())
 
     def add_data(self, testdata):
         url = self.host + "/"+testdata["url"]
