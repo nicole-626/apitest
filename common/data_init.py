@@ -43,7 +43,8 @@ class DataInit:
                 body['customerId'] = readconfig("CUSTOMER", "customerId")
 
         responce = requests.post(url, headers=self.headers, json=body)
-        return responce
+        if responce.json()["message"] != 'SUCCESS':
+            raise Exception("插入数据失败",responce.json())
 
 
 if __name__ == '__main__':
