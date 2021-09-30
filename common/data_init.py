@@ -40,7 +40,7 @@ class DataInit:
         url = self.host + "/"+testdata["url"]
         body = testdata["data"]
         if "appId" in body and body["appId"] == "appId":
-            body['appId'] = ("CUSTOMER", "appId")
+            body['appId'] = readenv_config("appId")
             if "customerId" in body and body["customerId"] == "customerId":
                 body['customerId'] = readenv_config("customerId")
 
