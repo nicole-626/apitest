@@ -1,6 +1,6 @@
 from common.readdata import read_csv
 from core.core_http import CoreHttp
-from common.read_config import readconfig
+from common.read_config import readenv_config
 
 
 class AgreementCreate:
