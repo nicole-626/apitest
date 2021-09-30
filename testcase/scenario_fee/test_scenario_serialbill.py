@@ -25,12 +25,12 @@ APIS={
 @ddt.ddt
 class FeeScenario(unittest.TestCase):
 
-    jsondata = read_json("testdata/scenario/serialbill.json")
+    jsondata = read_json("testdata/scenario_fee/serialbill.json")
     # 运行全部json用例=================================
     testdata_tuple = jsondata.items()
 
     # 运行指定case--主要用于调试和查看单个或某几个case===================
-    # casename = 'case03-1份合同，2个不同计费项(短信/次和事件型证书/次)-新旧数据'
+    # casename = '[***]case13-存在多个资源包，优先使用开始早的，其次结束早的，上海ca事件型证书'
     # testdata_tuple = [(casename,jsondata[casename])]
 
 
@@ -45,6 +45,7 @@ class FeeScenario(unittest.TestCase):
     def test_run(self,testdata):
         casename = testdata[0]
         casedata=testdata[1]
+        print("===============开始运行，用例名称：", casename)
         for sub_api in casedata:
             if 'url' in sub_api:
                 case_url = sub_api["url"]

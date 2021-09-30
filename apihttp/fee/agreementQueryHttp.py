@@ -3,10 +3,10 @@ from core.core_http import CoreHttp
 
 
 class AgreementQuery:
-    def __init__(self,test_method,jsondata):
+    def __init__(self,test_method,jsondata,csv_data=None):
         # 选择csv文件 则运行csv中单接口用例
         if test_method == "CSV":
-            test_data = read_csv("testdata/分页查询合同.csv")
+            test_data = csv_data
             self.url = test_data["url"]
             self.headers = test_data["headers"]
             self.method = test_data["method"]

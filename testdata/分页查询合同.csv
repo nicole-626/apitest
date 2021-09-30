@@ -1,8 +1,19 @@
-url,method,headers,data_type,params
-api/crm/oss/agreement/query/page,POST,{"Content-Type":"application/json"},json,"
+url,method,casename,headers,data_type,params,exp_code,exp_message
+api/crm/oss/agreement/query/page,POST,测试仅填写必填项,{"Content-Type":"application/json"},json,"
        {
-  ""appId"":111,
+  ""appId"": ""appId"",
+  ""customerId"": ""customerId"",
+  ""pageNo"":1,
+  ""pageSize"":10
+}",0,SUCCESS
+api/crm/oss/agreement/query/page,POST,不传appid,{"Content-Type":"application/json"},json,"
+       {
   ""customerId"": 2222,
   ""pageNo"":1,
   ""pageSize"":10
-}"
+}",100,客户id不得为空
+api/crm/oss/agreement/query/page,POST,不传customerId,{"Content-Type":"application/json"},json,"
+       {""appId"": ""appId"",
+  ""pageNo"":1,
+  ""pageSize"":10
+}",100,客户id不得为空

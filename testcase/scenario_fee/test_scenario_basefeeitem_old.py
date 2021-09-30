@@ -11,7 +11,7 @@ import ddt
 
 @ddt.ddt
 class BaseFeeItem(unittest.TestCase):
-    jsondata = read_json("testdata/scenario/basefeeitem_old.json")
+    jsondata = read_json("testdata/scenario_fee/basefeeitem_old.json")
     '''运行全部json用例'''
     # testdata_tuple = jsondata.items()
 

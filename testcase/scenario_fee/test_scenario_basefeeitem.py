@@ -25,14 +25,15 @@ APIS={
 @ddt.ddt
 class FeeScenario(unittest.TestCase):
 
-    jsondata = read_json("testdata/scenario/basefeeitem.json")
-    # 运行全部json用例=================================
+    jsondata = read_json("testdata/scenario_fee/basefeeitem.json")
+    # 运行全部json用例====================================================================================
     # testdata_tuple = jsondata.items()
 
-    # 运行指定case--主要用于调试和查看单个或某几个case===================
-    casename = 'case01-签署SIGNATURE-按次-新数据'
+    # 运行指定case--主要用于调试和查看单个或某几个case=========================================================
+    # jsondata = read_json("testdata/scenario_fee/olddata.json")
+    # # testdata_tuple = jsondata.items()
+    casename = 'case32-企业长期证书CORP_LONG_CERT-按个-cfca，2年期，数据为cfca-新数据'
     testdata_tuple = [(casename,jsondata[casename])]
-
 
     def setUp(self) -> None:
         '''清空已有数据'''
@@ -79,12 +80,12 @@ class FeeScenario(unittest.TestCase):
                     FeeApi().updatestatus(data, agreementid=agreementId)
 
                 elif case_url == APIS['bill_query']:
-                    time.sleep(1)
+                    time.sleep(2)
                     resBill = FeeApi().getbill(data)
                     resbillid = resBill.json()["result"]["result"][0]["id"]
 
                 elif case_url == APIS['bill_detail']:
-                    time.sleep(1)
+                    time.sleep(2)
                     if data["data"]["billId"] =="billId":
                         billid = resbillid
                     else:
@@ -99,8 +100,6 @@ class FeeScenario(unittest.TestCase):
                         print('实际',message)
                 else:
                     print('不存在此接口，请添加 或 检查数据！')
-
-
 
 
 if __name__ == '__main__':
