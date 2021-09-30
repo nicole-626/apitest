@@ -2,14 +2,15 @@ from configparser import ConfigParser
 from common.getpath import get_abspath
 import os
 
-config_path=os.path.join(get_abspath(),"config/base_conf.ini")
+config_path=os.path.join(get_abspath(),"config/env_conf.ini")
 
 
-def readconfig(section, option):
-    '''获取指定section下的指定option值'''
+def readenv_config(option):
+    '''获取对应环境下的option值'''
     conf = ConfigParser()
     conf.read(config_path, encoding='utf-8')
-    value=conf.get(section, option)
+    version=conf.get("VERSION","Version")
+    value=conf.get(version, option)
     return value
 
 
@@ -24,4 +25,5 @@ def readconfig(section, option):
 #     return values
 
 #
-# a=readconfig_readvalues('FeeApi_URL')
+# a=readenv_config('datainit_host')
+# print(a)

@@ -1,5 +1,6 @@
 import requests
-from common.read_config import readconfig
+from common.read_config import readenv_config
+
 
 class CoreHttp:
     """
@@ -8,7 +9,7 @@ class CoreHttp:
     默认host为 https://crm.qiyuesuo.me
     """
     def __init__(self,url,method,data_type='json', headers=None,get_params=None,post_params=None):
-        __default_host=readconfig("HTTP","host")
+        __default_host=readenv_config("host")
         self.cookie = {}
         self.url=__default_host+"/"+url
         self.headers=headers
@@ -19,12 +20,12 @@ class CoreHttp:
         self.timeout = 10  # 接口默认超时时间为10s
         # 传入的appid或customerid不为具体的值，转化为默认值
         if "appId" in self.post_params and self.post_params["appId"] == "appId":
-            self.post_params['appId'] = readconfig("CUSTOMER", "appId")
+            self.post_params['appId'] = readenv_config("appId")
             if "customerId" in self.post_params and self.post_params["customerId"] == "customerId":
-                self.post_params['customerId'] = readconfig("CUSTOMER", "customerId")
+                self.post_params['customerId'] = readenv_config("customerId")
 
     def __set_headers(self):
-        token=readconfig("AUTH","token")
+        token=readenv_config("token")
         __default_headers = {"x-qys-oss-token": token}
         if self.headers is not None:
             self.headers.update(__default_headers)

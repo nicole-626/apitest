@@ -3,7 +3,7 @@ from core.core_http import CoreHttp
 
 
 class AgreementQuery:
-    def __init__(self,test_method,jsondata,csv_data=None):
+    def __init__(self,test_method,jsondata=None,csv_data=None):
         # 选择csv文件 则运行csv中单接口用例
         if test_method == "CSV":
             test_data = csv_data
@@ -22,10 +22,10 @@ class AgreementQuery:
             self.headers = {"ContentType": "application/json"}
 
     def send(self):
-        responce=CoreHttp(self.url,self.method,self.data_type,self.headers,post_params=self.body).send_request()
-        return responce
+        return CoreHttp(self.url,self.method,self.data_type,self.headers,post_params=self.body).send_request()
+
 
 
 if __name__ == '__main__':
     a=AgreementQuery()
-    a.get_responce()
+    a.send()

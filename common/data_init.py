@@ -1,20 +1,20 @@
 # coding="utf-8"
 
 
-from common.read_config import readconfig
+from common.read_config import readenv_config
 import requests
 
 
 class DataInit:
     '''数据初始化：删除所有旧数据插入新数据'''
     def __init__(self):
-        self.host=readconfig('HTTP', 'datainit_host')
+        self.host=readenv_config('datainit_host')
         self.headers={
                     "Content-Type":"application/json",
-                    "x-qys-oss-token":readconfig("AUTH","token")}
+                    "x-qys-oss-token":readenv_config("token")}
         self.default_body = {
-            "appId": readconfig("CUSTOMER","appId"),
-            "customerId": readconfig("CUSTOMER","customerId")}
+            "appId": readenv_config("appId"),
+            "customerId": readenv_config("customerId")}
 
     def del_newdata(self,data=None):
         if data is None:
@@ -40,9 +40,9 @@ class DataInit:
         url = self.host + "/"+testdata["url"]
         body = testdata["data"]
         if "appId" in body and body["appId"] == "appId":
-            body['appId'] = readconfig("CUSTOMER", "appId")
+            body['appId'] = ("CUSTOMER", "appId")
             if "customerId" in body and body["customerId"] == "customerId":
-                body['customerId'] = readconfig("CUSTOMER", "customerId")
+                body['customerId'] = readenv_config("customerId")
 
         responce = requests.post(url, headers=self.headers, json=body)
         if responce.json()["message"] != 'SUCCESS':
