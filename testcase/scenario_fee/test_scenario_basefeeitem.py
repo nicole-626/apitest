@@ -95,7 +95,7 @@ class FeeScenario(unittest.TestCase):
                     message = output.json()["result"]["detailList"][0]["itemList"][0]["moneyNumList"]
                     if "exp_result" in sub_api:
                         exp_message = sub_api["exp_result"]
-                        self.assertEqual(message, exp_message)
+                        self.assertEqual(exp_message,message)
                         print('预期',exp_message)
                         print('实际',message)
                 else:

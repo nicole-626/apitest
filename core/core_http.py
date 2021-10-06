@@ -39,20 +39,20 @@ class CoreHttp:
                 if self.data_type == "json":
                     ret= requests.post(url=self.url, headers=self.__set_headers(), json=self.post_params,
                                          timeout=self.timeout)
-                    if ret.json()["code"] != 0:
-                        raise Exception(ret.json()["message"])
+                    if ret.status_code != 200:
+                        raise Exception("请求失败:",ret.text)
                     return ret
                 else:
                     ret = requests.post(url=self.url, headers=self.__set_headers(), data=self.post_params,
                                          timeout=self.timeout)
-                    if ret.json()["code"] != 0:
-                        raise Exception(ret.json()["message"])
+                    if ret.status_code != 200:
+                        raise Exception("请求失败:",ret.text)
                     return ret
             elif self.method == "GET":
                 ret = requests.get(url=self.url, headers=self.__set_headers(), params=self.get_params,
                                     timeout=self.timeout)
-                if ret.json()["code"] != 0:
-                    raise Exception(ret.json()["message"])
+                if ret.status_code != 200:
+                    raise Exception("请求失败:",ret.text)
                 return ret
             else:
                 print("invalid method")
