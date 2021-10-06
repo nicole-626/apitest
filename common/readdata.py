@@ -9,6 +9,7 @@ def read_csv(datapath):
         reader=csv.reader(f)
         keynames=next(reader)
         csv_reader=csv.DictReader(f,fieldnames=keynames)
+        data=[]
         for row in csv_reader:
             d={}
             for k,v in row.items():
@@ -16,7 +17,8 @@ def read_csv(datapath):
                     d[k]=json.loads(v)
                 else:
                     d[k]=v
-        return d
+            data.append(d)
+        return data
 
 
 def read_json(jsonpath):
@@ -29,7 +31,7 @@ def read_json(jsonpath):
 
 
 
-# a=read_json("testdata/scenario/basefeeitem_old.json")
+# a=read_json("testdata/scenario_fee/basefeeitem_old.json")
 # print(a["test01-签署计费项==================="][0]["初始化数据"])
 
 

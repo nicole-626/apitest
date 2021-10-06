@@ -535,7 +535,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -603,7 +604,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -657,13 +659,6 @@
         "pageSize": 10
       },
       "exp_result": {"2021-06":4000,"2021-05": 2000}
-    },
-    {
-      "url": "api/crm/oss/agreement/update/status",
-      "data": {
-        "agreementId": "agreementId",
-        "status": "disable"
-      }
     }
   ],
   "case06-事件型证书，数据为myca，合同为上海ca，不生成账单": [
@@ -1257,7 +1252,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -1320,7 +1316,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -1376,7 +1373,7 @@
       "exp_result": {"2021-06": 6000}
     }
   ],
-  "case12-【多个合同】上海CA 1年期，同一时刻存在多个单价，不存在资源包。单价优先使用签署时间迟的": [
+  "case12-【多合同】事件型证书上海CA，同一时刻存在多个单价，不存在资源包。单价优先使用签署时间迟的": [
     {
       "url": "oss/crm/oss/resource/test/insert",
       "data": {
@@ -1384,10 +1381,9 @@
         "customerId": "customerId",
         "productType": "EVENT_CERT",
         "createTime": "2021-06-29 00:00:00",
-        "number": 3,
+        "number": 2,
         "bizId": 21122,
-        "caType":"sheca",
-        "validity":12
+        "caType":"sheca"
       }
     },
     {
@@ -1401,8 +1397,7 @@
             "productType": "EVENT_CERT",
             "unit": "count",
             "config": {
-               "caType": "sheca",
-                "validity": 12
+               "caType": "sheca"
             }
           }
         ]
@@ -1414,7 +1409,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -1435,13 +1431,6 @@
                   "level": 1,
                   "price": "1000",
                   "from": 1,
-                  "to": 10,
-                  "noLimit": false
-                },
-                {
-                  "level": 2,
-                  "price": "2000",
-                  "from": 11,
                   "noLimit": true
                 }
               ]
@@ -1468,8 +1457,7 @@
             "productType": "EVENT_CERT",
             "unit": "count",
             "config": {
-               "caType": "sheca",
-                "validity": 12
+               "caType": "sheca"
             }
           }
         ]
@@ -1481,7 +1469,8 @@
         "appId": "appId",
         "customerId": "customerId",
         "pageNo": 1,
-        "pageSize": 10
+        "pageSize": 10,
+        "status": "draft"
       }
     },
     {
@@ -1502,13 +1491,723 @@
                   "level": 1,
                   "price": "3000",
                   "from": 1,
-                  "to": 10,
                   "noLimit": false
-                },
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      },
+      "exp_result": {"2021-06": 2000}
+    }
+  ],
+  "case13-存在多个资源包，优先使用开始早的，其次结束早的，上海ca事件型证书": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "EVENT_CERT",
+        "createTime": "2021-05-05 00:00:00",
+        "number": 3,
+        "bizId": 21122,
+        "caType":"sheca"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": " ",
+        "priceList": [
+          {
+            "productType": "EVENT_CERT",
+            "unit": "count",
+            "config": {
+               "caType": "sheca"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10,
+        "status": "draft"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "2021-07-03 12:00:00",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "事件型证书-上海ca",
+            "packPrice": {
+              "quota": 3,
+              "startTime": "2021-05-01 00:00:00",
+              "forever": true
+            },
+            "countPrice": {
+              "startTime": "2021-05-01 00:00:00",
+              "forever": true,
+              "levelList": [
                 {
-                  "level": 2,
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": " ",
+        "priceList": [
+          {
+            "productType": "EVENT_CERT",
+            "unit": "count",
+            "config": {
+               "caType": "sheca"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10,
+        "status": "draft"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "2021-01-02 12:00:00",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "事件型证书-上海ca",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-05-02 00:00:00",
+              "endTime":"2021-05-16 00:00:00",
+              "forever": false
+            },
+            "countPrice": {
+              "startTime": "2021-05-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "3000",
+                  "from": 1,
+                  "noLimit": false
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      },
+      "exp_result": {"2021-05": 0}
+    }
+  ],
+  "case14-上海ca事件型证书，存在具体配置+资源包>存在具体配置+单价": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "EVENT_CERT",
+        "createTime": "2021-06-29 00:00:00",
+        "number": 3,
+        "bizId": 21122,
+        "caType":"sheca"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": " ",
+        "priceList": [
+          {
+            "productType": "EVENT_CERT",
+            "unit": "count",
+            "config": {
+               "caType": "sheca"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10,
+        "status": "draft"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "2021-07-03 12:00:00",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "事件型证书-上海ca",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-06-01 00:00:00",
+              "forever": false,
+              "endTime": "2021-07-01 00:00:00"
+            },
+            "countPrice": {
+              "startTime": "2021-06-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": " ",
+        "priceList": [
+          {
+            "productType": "EVENT_CERT",
+            "unit": "count",
+            "config": {
+               "caType": "sheca"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10,
+        "status": "draft"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "2021-08-02 12:00:00",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "事件型证书-上海ca",
+            "countPrice": {
+              "startTime": "2021-06-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "3000",
+                  "from": 1,
+                  "noLimit": false
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      },
+      "exp_result": {"2021-06": 6000}
+    }
+  ],
+  "case15-【2个合同】上海ca事件型证书，存在具体配置+单价>不存在具体配置+资源包": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "EVENT_CERT",
+        "createTime": "2021-06-29 00:00:00",
+        "number": 3,
+        "bizId": 21122,
+        "caType":"sheca"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": " ",
+        "priceList": [
+          {
+            "productType": "EVENT_CERT",
+            "unit": "count"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10,
+        "status": "draft"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "2021-07-03 12:00:00",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "事件型证书",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-06-01 00:00:00",
+              "forever": false,
+              "endTime": "2021-07-01 00:00:00"
+            },
+            "countPrice": {
+              "startTime": "2021-06-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": " ",
+        "priceList": [
+          {
+            "productType": "EVENT_CERT",
+            "unit": "count",
+            "config": {
+               "caType": "sheca"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10,
+        "status": "draft"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "2021-08-02 12:00:00",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "事件型证书-上海ca",
+            "countPrice": {
+              "startTime": "2021-06-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
                   "price": "2000",
-                  "from": 11,
+                  "from": 1,
+                  "noLimit": false
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      },
+      "exp_result": {"2021-06": 6000}
+    }
+  ],
+  "case16-【1个合同2个计费项】上海ca事件型证书，存在具体配置+单价>不存在具体配置+资源包": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "EVENT_CERT",
+        "createTime": "2021-06-29 00:00:00",
+        "number": 3,
+        "bizId": 21122,
+        "caType":"sheca"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": " ",
+        "priceList": [
+          {
+            "productType": "EVENT_CERT",
+            "unit": "count"
+          },
+          {
+            "productType": "EVENT_CERT",
+            "unit": "count",
+            "config": {
+               "caType": "sheca"
+            }
+
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "2021-07-03 12:00:00",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "事件型证书-上海CA",
+            "countPrice": {
+              "startTime": "2021-06-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "2000",
+                  "from": 1,
+                  "noLimit": true
+                }
+              ]
+            }
+          },
+          {
+            "id": "id",
+            "name": "事件型证书",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-06-01 00:00:00",
+              "forever": false,
+              "endTime": "2021-07-01 00:00:00"
+            },
+            "countPrice": {
+              "startTime": "2021-06-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/bill/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "orderColumn": "month",
+        "orderStrategy": "desc",
+        "pageNo": 1,
+        "pageSize": 10
+      },
+      "exp_result": {"2021-06": 6000}
+    }
+  ],
+  "case17-【2个合同】上海ca事件型证书，不存在具体配置+资源包>不存在具体配置+单价": [
+    {
+      "url": "oss/crm/oss/resource/test/insert",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "productType": "EVENT_CERT",
+        "createTime": "2021-06-29 00:00:00",
+        "number": 3,
+        "bizId": 21122,
+        "caType":"sheca"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": " ",
+        "priceList": [
+          {
+            "productType": "EVENT_CERT",
+            "unit": "count"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10,
+        "status": "draft"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "2021-07-03 12:00:00",
+        "feeStartTime": "2021-01-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "事件型证书",
+            "countPrice": {
+              "startTime": "2021-06-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
+                  "noLimit": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/update/status",
+      "data": {
+        "agreementId": "agreementId",
+        "status": "enable"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/create",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "desc": " ",
+        "priceList": [
+          {
+            "productType": "EVENT_CERT",
+            "unit": "count"
+          }
+        ]
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/query/page",
+      "data": {
+        "appId": "appId",
+        "customerId": "customerId",
+        "pageNo": 1,
+        "pageSize": 10,
+        "status": "draft"
+      }
+    },
+    {
+      "url": "api/crm/oss/agreement/price/update",
+      "data": {
+        "agreementId": "agreementId",
+        "signTime": "2021-08-03 12:00:00",
+        "feeStartTime": "2021-02-01 12:00:00",
+        "priceList": [
+          {
+            "id": "id",
+            "name": "事件型证书",
+            "packPrice": {
+              "quota": 1,
+              "startTime": "2021-06-01 00:00:00",
+              "forever": false,
+              "endTime": "2021-07-01 00:00:00"
+            },
+            "countPrice": {
+              "startTime": "2021-06-01 00:00:00",
+              "forever": true,
+              "levelList": [
+                {
+                  "level": 1,
+                  "price": "1000",
+                  "from": 1,
                   "noLimit": true
                 }
               ]
@@ -1534,19 +2233,7 @@
         "pageNo": 1,
         "pageSize": 10
       },
-      "exp_result": {"2021-06": 3000}
-    }
-  ],
-  "case04-test": [
-    {
-      "url": "api/crm/oss/agreement/query/page",
-      "data": {
-        "appId": "appId",
-        "customerId": "customerId",
-        "pageNo": 1,
-        "pageSize": 10
-      }
+      "exp_result": {"2021-06": 2000}
     }
   ]
-
 }
