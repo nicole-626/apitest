@@ -6,7 +6,7 @@ class CoreHttp:
     """
     调用方式：
     外部调用send_request方法
-    默认host为 https://crm.qiyuesuo.me
+    默认host为 https://xxx.xxx.xxx
     """
     def __init__(self,url,method,data_type='json', headers=None,get_params=None,post_params=None):
         __default_host=readenv_config("host")
